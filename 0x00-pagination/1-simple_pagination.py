@@ -36,10 +36,8 @@ class Server:
         print(idx_range)
 
         lst = self.dataset()
-        try:
-            return lst[idx_range[0]: idx_range[1]]
-        except IndexError:
-            return []
+
+        return lst[idx_range[0]: idx_range[1]]
 
     def index_range(self, page: int, page_size: int) -> Tuple[int, int]:
         """Determines the number of index within a pagination parameters

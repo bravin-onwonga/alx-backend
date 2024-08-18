@@ -23,6 +23,6 @@ except AssertionError:
     print("AssertionError raised when page and/or page_size are not ints")
 
 
-print(server.get_page(20000, 20100))
+print(server.get_page(19400, 30))
 print(server.get_page(3, 2))
 print(server.get_page(3000, 100))

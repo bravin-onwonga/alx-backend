@@ -33,8 +33,6 @@ class Server:
 
         idx_range = self.index_range(page, page_size)
 
-        print(idx_range)
-
         lst = self.dataset()
 
         return lst[idx_range[0]: idx_range[1]]

@@ -94,7 +94,8 @@ class Server:
         return dct
 
     def populate(self, dct: dict, page_size: int, page: int, data: int,
-                 next_page: int, prev_page: int, total_pages: int) -> dict:
+                 next_page: int, prev_page: int,
+                 total_pages: int) -> Dict[str, Union[int, List]]:
         """Populates the dict with hyper values"""
         dct['page_size'] = page_size
         dct['page'] = page

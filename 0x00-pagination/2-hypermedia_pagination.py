@@ -69,7 +69,7 @@ class Server:
         dct = {}
 
         total_size = self.dataset()
-        total_pages = math.ceil(len(total_size) // page_size)
+        total_pages = math.ceil(len(total_size) / page_size)
 
         if page <= 0:
             data = []

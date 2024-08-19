@@ -61,7 +61,7 @@ class Server:
         return (start, end)
 
     def get_hyper(self, page: int = 1,
-                  page_size: int = 10) -> Dict[str, Union[int, List]]:
+                  page_size: int = 10) -> Dict:
         """Returns a dictionary representation of a hypermedia
         pagination"""
         import math
@@ -71,7 +71,11 @@ class Server:
         total_size = self.dataset()
         total_pages = math.ceil(len(total_size) // page_size)
 
-        if page > total_pages:
+        if page <= 0:
+            data = []
+            prev_page = None
+            next_page = 1
+        elif page > total_pages:
             data = []
             prev_page = page - 1
             next_page = None
@@ -94,7 +98,7 @@ class Server:
 
     def populate(self, dct: dict, page_size: int, page: int, data: int,
                  next_page: int, prev_page: int,
-                 total_pages: int) -> Dict[str, Union[int, List]]:
+                 total_pages: int) -> Dict:
         """Populates the dict with hyper values"""
         dct['page_size'] = page_size
         dct['page'] = page

@@ -14,6 +14,7 @@ class Server:
     DATA_FILE = "Popular_Baby_Names.csv"
 
     def __init__(self):
+        """Instantiates an instance with this variable"""
         self.__dataset = None
 
     def dataset(self) -> List[List]:
@@ -28,6 +29,8 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """Creates a simple pagination in the form of a list
+        based on the page number and size"""
         assert type(page) is int and page > 0
         assert type(page_size) is int and page_size > 0
 
@@ -66,7 +69,7 @@ class Server:
         dct = {}
 
         total_size = self.dataset()
-        total_pages = math.ceil(len(total_size) / page_size)
+        total_pages = math.ceil(len(total_size) // page_size)
 
         if page > total_pages:
             data = []

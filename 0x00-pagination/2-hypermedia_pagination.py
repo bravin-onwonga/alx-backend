@@ -5,7 +5,7 @@ Gets page values based on pagination parameter
 
 import csv
 import math
-from typing import List, Tuple
+from typing import List, Tuple, Dict, Union
 
 
 class Server:
@@ -57,7 +57,8 @@ class Server:
         end = start + page_size
         return (start, end)
 
-    def get_hyper(self, page: int = 1, page_size: int = 10) -> dict:
+    def get_hyper(self, page: int = 1,
+                  page_size: int = 10) -> Dict[str, Union[int, list]]:
         """Returns a dictionary representation of a hypermedia
         pagination"""
         import math

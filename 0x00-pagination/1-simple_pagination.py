@@ -4,7 +4,6 @@ Gets page values based on pagination parameter
 """
 
 import csv
-import math
 from typing import List, Tuple
 
 
@@ -28,6 +27,8 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
+        """Creates a simple pagination in the form of a list
+        based on the page number and size"""
         assert type(page) is int and page > 0
         assert type(page_size) is int and page_size > 0
 

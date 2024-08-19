@@ -58,7 +58,7 @@ class Server:
         return (start, end)
 
     def get_hyper(self, page: int = 1,
-                  page_size: int = 10) -> Dict[str, Union[int, list]]:
+                  page_size: int = 10) -> Dict[str, Union[int, List]]:
         """Returns a dictionary representation of a hypermedia
         pagination"""
         import math
@@ -71,7 +71,7 @@ class Server:
         if page <= 0:
             data = []
             prev_page = None
-            next_page = page + 1
+            next_page = 1
         elif page > total_pages:
             data = []
             prev_page = page - 1

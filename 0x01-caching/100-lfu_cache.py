@@ -26,7 +26,6 @@ class LFUCache(BaseCaching):
                     if self.lfu.get(k) == val:
                         key_to_del = k
                         break
-                print(self.lfu)
                 del self.cache_data[key_to_del]
                 del self.lfu[key_to_del]
                 print("DISCARD: {}".format(key_to_del))

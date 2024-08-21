@@ -6,7 +6,7 @@ BaseCaching = __import__('base_caching').BaseCaching
 
 
 class LRUCache(BaseCaching):
-    """Simple class representation of a LIFO caching system"""
+    """Simple class representation of a LRU caching system"""
     def __init__(self) -> None:
         """Initialize an instance with parent class attributed"""
         self.lru = {}

@@ -11,7 +11,7 @@ In this caching system, the most recently used value is noted and in case where 
 
 - **Segmented Least Rececently Used(*SLRU*)**
 
-A version of LRU that used two memory segments: ```probatory``` and ```protected```. The  ```probatory``` block contains values only accessed once. If the value is accessed twice it is move to the ```protected```. The ```protected``` has finite memory and oprates under ```LRU``` where incase it is filled the least recently used value is either demoted to the ```probatory``` segment or deleted depending on the configuration.
+A version of LRU that used two memory segments: ```probationary``` and ```protected```. The  ```probationary``` block contains values only accessed once. If the value is accessed twice it is move to the ```protected```. The ```protected``` has finite memory and oprates under ```LRU``` where incase it is filled the least recently used value is either demoted to the ```probationary``` segment or deleted depending on the configuration.
 
 - **Pseudo Least Rececently Used(*PLRU*)**
 

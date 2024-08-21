@@ -9,7 +9,7 @@ class MRUCache(BaseCaching):
     """Simple class representation of a MRU caching system"""
     def __init__(self) -> None:
         """Initialize an instance with parent class attributed"""
-        self.lru = {}
+        self.mru = {}
         self.access = 0
         super().__init__()
 
@@ -22,16 +22,16 @@ class MRUCache(BaseCaching):
         if key and item:
             dct_len = len(self.cache_data)
             if dct_len == BaseCaching.MAX_ITEMS and key not in self.cache_data:
-                val = sorted([v for v in self.lru.values()])[-1]
-                for k in self.lru.keys():
-                    if self.lru.get(k) == val:
+                val = sorted([v for v in self.mru.values()])[-1]
+                for k in self.mru.keys():
+                    if self.mru.get(k) == val:
                         key_to_del = k
                 del self.cache_data[key_to_del]
-                del self.lru[key_to_del]
+                del self.mru[key_to_del]
                 print("DISCARD: {}".format(key_to_del))
             self.cache_data[key] = item
             self.access += 1
-            self.lru[key] = self.access
+            self.mru[key] = self.access
 
     def get(self, key: Any) -> Any:
         """Gets an item from the cache dict
@@ -43,5 +43,5 @@ class MRUCache(BaseCaching):
         item = self.cache_data.get(key)
         if item:
             self.access += 1
-            self.lru[key] = self.access
+            self.mru[key] = self.access
         return item

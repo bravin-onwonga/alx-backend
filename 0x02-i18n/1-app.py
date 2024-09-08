@@ -21,11 +21,6 @@ app.config.from_object(Config)
 babel = Babel(app)
 
 
-def get_locale():
-    """ Best matching language """
-    return request.accept_languages.best_match(app.config['LANGUAGES'])
-
-
 @app.route('/', strict_slashes=False)
 def index():
     """ Index route """

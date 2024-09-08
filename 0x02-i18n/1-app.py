@@ -1,11 +1,10 @@
 #!/usr/bin/env python3
 """ Configure Babel for translation """
 
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 from flask_babel import Babel
 
 app = Flask(__name__)
-babel = Babel(app)
 
 
 class Config():
@@ -14,8 +13,17 @@ class Config():
 
     def get_locale(self):
         """ Sets the locale to en and timezone to UTC """
-        app.config['BABEL_DEFAULT_LOCALE'] = 'en'
-        app.config['BABEL_DEFAULT_TIMEZONE'] = 'UTC'
+        BABEL_DEFAULT_LOCALE = 'en'
+        BABEL_DEFAULT_TIMEZONE = 'UTC'
+
+
+app.config.from_object(Config)
+babel = Babel(app)
+
+
+def get_locale():
+    """ Best matching language """
+    return request.accept_languages.best_match(app.config['LANGUAGES'])
 
 
 @app.route('/', strict_slashes=False)

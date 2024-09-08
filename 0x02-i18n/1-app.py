@@ -10,11 +10,8 @@ app = Flask(__name__)
 class Config():
     """ Simple class """
     LANGUAGES = ["en", "fr"]
-
-    def get_locale(self):
-        """ Sets the locale to en and timezone to UTC """
-        BABEL_DEFAULT_LOCALE = 'en'
-        BABEL_DEFAULT_TIMEZONE = 'UTC'
+    BABEL_DEFAULT_LOCALE = 'en'
+    BABEL_DEFAULT_TIMEZONE = 'UTC'
 
 
 app.config.from_object(Config)
